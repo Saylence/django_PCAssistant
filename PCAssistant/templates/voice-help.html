@@ -1,0 +1,21 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}Голосовой помощник{% endblock %}
+{% block content %}
+    <div class="voice-form">
+        <h3 class="h3voice">Страница запуска голосового помощника</h3>
+        <form id="" method="post" action="{% url 'voice-help' %}">
+            {% csrf_token %}
+            <button id="startButton" class="btn btn-info" type="submit">Запустить модуль</button>
+        </form>
+        <h4 id="status" class="h3voice" style="display: none;">Говорите</h4>
+    </div>
+
+
+    <script>
+        document.getElementById('startButton').addEventListener('click', function() {
+            document.getElementById('status').style.display = 'block';
+            document.getElementById('startButton').style.display = 'none';
+        });
+    </script>
+{% endblock %}
